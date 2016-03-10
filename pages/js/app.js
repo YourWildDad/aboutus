@@ -4,7 +4,6 @@ function TextInput(message, id) {
     var l = message.length - 1;
     var j = 0;
     self.id = id;
-    document.getElementById(id).innerHTML = '';
     self.ct = function(text) {
         var p = document.createElement('p');
         var span = document.createElement('span');
@@ -27,6 +26,7 @@ function TextInput(message, id) {
     };
 }
 TextInput.prototype.start = function() {
+    document.getElementById(this.id).innerHTML = '';
     this.ct(this.message[0]);
 };
 TextInput.prototype.getDelay = function() {
