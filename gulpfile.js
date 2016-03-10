@@ -7,23 +7,23 @@ var gulp = require('gulp'),
     LessPluginAutoPrefix = require("less-plugin-autoprefix"),
     autoprefix = new LessPluginAutoPrefix({
         browsers: [
-            'last 4 versions',
+            'last 8 versions',
             "ie >= 7"
         ]
     });
 gulp.task('less', function() {
-    gulp.src('./pages/*.less')
+    gulp.src('./pages/css/*.less')
         .pipe(less({plugins: [autoprefix]}))
-        .pipe(gulp.dest('./pages'));
+        .pipe(gulp.dest('./pages/css'));
 });
 gulp.task('js', function() {
-    gulp.src('./pages/*.js')
+    gulp.src('./pages/js/*.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./pages'));
+        .pipe(gulp.dest('./pages/js'));
 });
 gulp.task('watch', function() {
-    gulp.watch('./pages/*.less', ['less']);
+    gulp.watch('./pages/css/*.less', ['less']);
 });
 gulp.task('default', []);
 gulp.task('init', ['less', 'js']);

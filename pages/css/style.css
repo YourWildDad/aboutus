@@ -1,0 +1,63 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: -webkit-radial-gradient(ellipse, #20202D 0%, #101018 75%, #060612 100%);
+  background: radial-gradient(ellipse, #20202D 0%, #101018 75%, #060612 100%);
+  padding-top: 15%;
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.welcome {
+  color: #fff;
+  width: 30em;
+  margin: 0 auto;
+  font-size: 1.2em;
+  text-shadow: 0 0 0.8em rgba(255, 255, 255, 0.8);
+}
+.welcome > p {
+  -webkit-font-smoothing: antialiased;
+  width: auto;
+}
+.welcome > p:first-child {
+  margin-top: 0;
+}
+.members {
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
+  text-align: center;
+}
+.members > .mem-ul {
+  padding: 0;
+  list-style: none;
+  width: 35em;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.members > .mem-ul:before,
+.members > .mem-ul:after {
+  content: "";
+  display: table;
+}
+.members > .mem-ul:after {
+  clear: both;
+}
+.members > .mem-ul > li {
+  cursor: pointer;
+  margin: 1em;
+  float: left;
+}
+.members .member-item {
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+  border: .3em solid #fff;
+  overflow: hidden;
+  background: url("../images/member.jpg") no-repeat center;
+  background-size: contain;
+}
