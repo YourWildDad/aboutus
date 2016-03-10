@@ -2,7 +2,7 @@ function TextInput(message, id) {
     var self = this;
     self.message = message || [];
     var l = message.length - 1;
-    var j = 0;
+    self.j = 0;
     self.id = id;
     self.ct = function(text) {
         var p = document.createElement('p');
@@ -19,7 +19,7 @@ function TextInput(message, id) {
             if (i === tl) {
                 clearInterval(interval);
                 p.removeChild(udline);
-                j < l ? self.ct(message[++j]) : 0;
+                self.j < l ? self.ct(message[++self.j]) : 0;
             }
             span.innerText += text[i++];
         }, 75, tl);
@@ -27,6 +27,7 @@ function TextInput(message, id) {
 }
 TextInput.prototype.start = function() {
     document.getElementById(this.id).innerHTML = '';
+    this.j = 0;
     this.ct(this.message[0]);
 };
 TextInput.prototype.getDelay = function() {
