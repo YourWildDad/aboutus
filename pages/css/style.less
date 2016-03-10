@@ -9,13 +9,25 @@
     clear: both;
   }
 }
-html, body {
+html, body, .main {
   height: 100%;
   width: 100%;
 }
 body {
   background: radial-gradient(ellipse, #20202D 0%, #101018 75%, #060612 100%);
+}
+.main {
   padding-top: 15%;
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: "";
+    left: 0;
+    top: 0;
+    background-image: url("../images/filter.png")
+  }
 }
 * {
   box-sizing: border-box;
@@ -38,20 +50,74 @@ body {
   position: absolute;
   width: 100%;
   bottom: 5%;
-  text-align: center;
   & > .mem-ul {
     padding: 0;
     list-style: none;
     width: 35em;
     margin: 0 auto;
     .clearfix();
-    & > li {
-      cursor: pointer;
-      margin: 1em;
-      float: left;
+  }
+}
+.mem-ul > li {
+  position: relative;
+  cursor: pointer;
+  margin: 3em 1em 2em 1em;
+  float: left;
+  transition: all ease .5s;
+  &:hover {
+    margin: 0 .5em 1em .5em;
+    transition: all ease .5s;
+    & > .member-item {
+      transition: all ease .5s;
+      height: 6em;
+      width: 6em;
+    }
+    div.introduction {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity ease 1s 1s;
     }
   }
-  .member-item {
+  & > div.introduction {
+    visibility: hidden;
+    height: 15em;
+    width: 15em;
+    background-color: #fff;
+    position: absolute;
+    bottom: 7em;
+    opacity: 0;
+    left: -4.5em;
+    border-radius: .5em;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    & > .triangle {
+      position: absolute;
+      bottom: -0.8em;
+      width: 5em;
+      margin: 0 5em;
+      border-top: 1em solid #fff;
+      border-left: 2.5em solid transparent;
+      border-right: 2.5em solid transparent;
+    }
+    & > .title {
+      color: rgba(0, 0, 0, 0.6);
+      padding: 2em 1em;
+      width: 100%;
+      height: 4em;
+      border-bottom: .1em solid rgba(0, 0, 0, 0.1);
+    }
+    & > .content {
+      color: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      width: 100%;
+      height: 4em;
+    }
+    h3 {
+      margin: 0;
+      font-weight: normal;
+      vertical-align: bottom;
+    }
+  }
+  & > .member-item {
     height: 5em;
     width: 5em;
     border-radius: 50%;
@@ -59,5 +125,6 @@ body {
     overflow: hidden;
     background: url("../images/member.jpg") no-repeat center;
     background-size: contain;
+    transition: all ease .5s;
   }
 }

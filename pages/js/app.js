@@ -1,14 +1,16 @@
-function TextInput(message) {
+function TextInput(message, id) {
     var self = this;
     self.message = message || [];
     var l = message.length - 1;
     var j = 0;
+    self.id = id;
+    document.getElementById(id).innerHTML = '';
     self.ct = function(text) {
         var p = document.createElement('p');
         var span = document.createElement('span');
         var udline = document.createElement('span');
         udline.innerText = '_';
-        var con = document.getElementById('text-container');
+        var con = document.getElementById(self.id);
         con.appendChild(p);
         p.appendChild(span);
         p.appendChild(udline);
@@ -42,8 +44,20 @@ TextInput.prototype.getDelay = function() {
     message.push('欢迎来到小升初复读班小队的主页!');
     message.push('欢迎来到小升初复读班小队的主页!');
     message.push('欢迎来到小升初复读班小队的主页!');
-    var textInput = new TextInput(message);
+    var textInput = new TextInput(message, 'text-container');
     textInput.start();
     setTimeout(function() {
     }, textInput.getDelay());
+    var ywdmsg = ['写个代码改变世界', '前端小能手', '求大神带飞~'];
+    var ywd = new TextInput(ywdmsg, 'ywd');
+    var ywdlis = document.getElementById('ywd-listener');
+    ywdlis.onmouseover ? ywdlis.onmouseover = function() {
+        setTimeout(function() {
+            ywd.start();
+        }, 1000);
+    } : ywdlis.addEventListener('mouseover', function() {
+        setTimeout(function() {
+            ywd.start();
+        }, 1000);
+    });
 })();
