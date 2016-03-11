@@ -5,6 +5,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     LessPluginAutoPrefix = require("less-plugin-autoprefix"),
+    clean = require('gulp-clean'),
+    concat = require('gulp-concat'),
     autoprefix = new LessPluginAutoPrefix({
         browsers: [
             'last 8 versions',
@@ -17,13 +19,36 @@ gulp.task('less', function() {
         .pipe(gulp.dest('./pages/css'));
 });
 gulp.task('js', function() {
-    gulp.src('./pages/js/*.js')
+    gulp.src(['./pages/js/*.js', '!./pages/js/*.min.js'])
         .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
+        //.pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./pages/js'));
+});
+gulp.task('clean', function() {
+    gulp.src('./dist').pipe(clean());
+});
+gulp.task('dist', function() {
+    gulp.src('./pages/css/*.less')
+        .pipe(less({plugins: [autoprefix]}))
+        .pipe(minifycss())
+        //.pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/css'));
+    gulp.src(['./pages/js/*.js', '!./pages/js/*.min.js'])
+        .pipe(uglify())
+        //.pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/js'));
+    gulp.src('./pages/js/*.min.js')
+        .pipe(gulp.dest('./dist/js'));
+    gulp.src('./pages/*')
+        .pipe(gulp.dest('./dist'));
+    gulp.src('./pages/fonts/*')
+        .pipe(gulp.dest('./dist/fonts'));
+    gulp.src('./pages/images/*')
+        .pipe(gulp.dest('./dist/images'));
 });
 gulp.task('watch', function() {
     gulp.watch('./pages/css/*.less', ['less']);
 });
 gulp.task('default', []);
-gulp.task('init', ['less', 'js']);
+gulp.task('dev', ['less', 'js']);
+gulp.task('prod', ['clean', 'dist']);
