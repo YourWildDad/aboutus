@@ -51,4 +51,3 @@ gulp.task('watch', function() {
 });
 gulp.task('default', []);
 gulp.task('dev', ['less', 'js']);
-gulp.task('prod', ['clean', 'dist']);
