@@ -17,12 +17,12 @@ gulp.task('less', function() {
         .pipe(less({plugins: [autoprefix]}))
         .pipe(gulp.dest('./pages/css'));
 });
-gulp.task('js', function() {
-    gulp.src(['./pages/js/*.js', '!./pages/js/*.min.js'])
-        .pipe(uglify())
-        //.pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./pages/js'));
-});
+//gulp.task('js', function() {
+//    gulp.src(['./pages/js/*.js', '!./pages/js/*.min.js'])
+//        .pipe(uglify())
+//        //.pipe(rename({suffix: '.min'}))
+//        .pipe(gulp.dest('./pages/js'));
+//});
 gulp.task('clean', function() {
     gulp.src('./dist').pipe(clean());
 });
