@@ -5,7 +5,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     LessPluginAutoPrefix = require("less-plugin-autoprefix"),
-    clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     autoprefix = new LessPluginAutoPrefix({
         browsers: [
@@ -49,5 +48,5 @@ gulp.task('dist', function() {
 gulp.task('watch', function() {
     gulp.watch('./pages/css/*.less', ['less']);
 });
+gulp.task('init', ['less', 'dist']);
 gulp.task('default', []);
-gulp.task('dev', ['less', 'js']);
