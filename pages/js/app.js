@@ -38,6 +38,7 @@ TextInput.prototype.getDelay = function() {
     }
     return delay * 75;
 };
+
 (function() {
     var message = [];
     message.push('欢迎来到小升初复读班小队的主页!');
@@ -68,6 +69,18 @@ TextInput.prototype.getDelay = function() {
     } : yaolis.addEventListener('mouseover', function() {
         setTimeout(function() {
             yao.start();
+        }, 1000);
+    });
+    var stonemsg = ['一直想当个学习委员', '今天终于实现了'];
+    var stone = new TextInput(stonemsg, 'stone');
+    var stonelis = document.getElementById('stone-listener');
+    stonelis.onmouseover ? stonelis.onmouseover = function() {
+        setTimeout(function() {
+            stone.start();
+        }, 1000);
+    } : stonelis.addEventListener('mouseover', function() {
+        setTimeout(function() {
+            stone.start();
         }, 1000);
     });
 })();
