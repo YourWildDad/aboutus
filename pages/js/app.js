@@ -41,10 +41,8 @@ TextInput.prototype.getDelay = function() {
 (function() {
     var message = [];
     message.push('欢迎来到小升初复读班小队的主页!');
-    message.push('欢迎来到小升初复读班小队的主页!');
-    message.push('欢迎来到小升初复读班小队的主页!');
-    message.push('欢迎来到小升初复读班小队的主页!');
-    message.push('欢迎来到小升初复读班小队的主页!');
+    message.push('团队创建于2016年3月9日，由一位专业攻城狮和四位业余前端汪组成。');
+
     var textInput = new TextInput(message, 'text-container');
     textInput.start();
     setTimeout(function() {
@@ -61,4 +59,18 @@ TextInput.prototype.getDelay = function() {
             ywd.start();
         }, 1000);
     });
+    var yaomsg = ['代码是体育老师教的', '啥也不会小能手', '求同学们不嫌弃'];
+    var yao = new TextInput(yaomsg, 'yao');
+    var yaolis = document.getElementById('yao-listener');
+        yaolis.onmouseover ? yaolis.onmouseover = function() {
+        setTimeout(function() {
+            yao.start();
+        }, 1000);
+    } : yaolis.addEventListener('mouseover', function() {
+        setTimeout(function() {
+            yao.start();
+        }, 1000);
+    });
+
+
 })();

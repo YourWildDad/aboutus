@@ -1,0 +1,130 @@
+html,
+body,
+.main {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: radial-gradient(ellipse, #20202D 0%, #101018 75%, #060612 100%);
+}
+.main {
+  padding-top: 15%;
+}
+.main:before {
+  pointer-events: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: "";
+  left: 0;
+  top: 0;
+  background-image: url("../images/filter.png");
+}
+* {
+  box-sizing: border-box;
+}
+.welcome {
+  color: #B95;
+  width: 30em;
+  margin: 0 auto;
+  font-size: 1.2em;
+  text-shadow: 0 0 0.8em rgba(255, 255, 255, 0.3);
+}
+.welcome > p {
+  -webkit-font-smoothing: antialiased;
+  width: auto;
+}
+.welcome > p:first-child {
+  margin-top: 0;
+}
+.members {
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
+}
+.members > .mem-ul {
+  padding: 0;
+  list-style: none;
+  width: 35em;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.members > .mem-ul:before,
+.members > .mem-ul:after {
+  content: "";
+  display: table;
+}
+.members > .mem-ul:after {
+  clear: both;
+}
+.mem-ul > li {
+  position: relative;
+  cursor: pointer;
+  margin: 3em 1em 2em 1em;
+  float: left;
+  transition: all ease .5s;
+}
+.mem-ul > li:hover {
+  margin: 0 .5em 1em .5em;
+  transition: all ease .5s;
+}
+.mem-ul > li:hover > .member-item {
+  transition: all ease .5s;
+  height: 6em;
+  width: 6em;
+}
+.mem-ul > li:hover div.introduction {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity ease 1s 1s;
+}
+.mem-ul > li > div.introduction {
+  visibility: hidden;
+  height: 15em;
+  width: 15em;
+  background-color: #fff;
+  position: absolute;
+  bottom: 7em;
+  opacity: 0;
+  left: -4.5em;
+  border-radius: .5em;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+.mem-ul > li > div.introduction > .triangle {
+  position: absolute;
+  bottom: -0.8em;
+  width: 5em;
+  margin: 0 5em;
+  border-top: 1em solid #fff;
+  border-left: 2.5em solid transparent;
+  border-right: 2.5em solid transparent;
+}
+.mem-ul > li > div.introduction > .title {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 2em 1em;
+  width: 100%;
+  height: 4em;
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
+}
+.mem-ul > li > div.introduction > .content {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 1em;
+  width: 100%;
+  height: 4em;
+}
+.mem-ul > li > div.introduction h3 {
+  margin: 0;
+  font-weight: normal;
+  vertical-align: bottom;
+}
+.mem-ul > li > .member-item {
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+  border: .4em solid #fff;
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.8) inset;
+  overflow: hidden;
+  background: url("../images/member.jpg") no-repeat center #fff;
+  background-size: contain;
+  transition: all ease .5s;
+}
