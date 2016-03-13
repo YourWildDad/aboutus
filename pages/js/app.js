@@ -83,4 +83,16 @@ TextInput.prototype.getDelay = function() {
             stone.start();
         }, 1000);
     });
+    var goumsg = ['北风吹 秋风凉', '谁家娇妻守空房', '你有难 我帮忙', '我住隔壁我姓王'];
+    var gou = new TextInput(goumsg, 'gouzi');
+    var goulis = document.getElementById('gouzi-listener');
+    goulis.onmouseover ? goulis.onmouseover = function() {
+        setTimeout(function() {
+            gou.start();
+        }, 1000);
+    } : goulis.addEventListener('mouseover', function() {
+        setTimeout(function() {
+            gou.start();
+        }, 1000);
+    });
 })();
