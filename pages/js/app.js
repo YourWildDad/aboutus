@@ -13,7 +13,7 @@ function TextInput(message, ele) {
         con.appendChild(p);
         p.appendChild(span);
         p.appendChild(udline);
-        var tl = text.length - 1;
+        var tl = text ? text.length - 1 : 0;
         var i = 0;
         var interval = setInterval(function() {
             if (i === tl) {
