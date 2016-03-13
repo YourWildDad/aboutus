@@ -83,16 +83,16 @@ TextInput.prototype.getDelay = function() {
             stone.start();
         }, 1000);
     });
-    var goumsg = ['北风吹 秋风凉', '谁家娇妻守空房', '你有难 我帮忙', '我住隔壁我姓王'];
-    var gou = new TextInput(goumsg, 'gouzi');
-    var goulis = document.getElementById('gouzi-listener');
-    goulis.onmouseover ? goulis.onmouseover = function() {
+    var sevenmsg = ['从小就最喜欢数学', '从今天开始我就是数学课代表啦','同学们不要忘记交作业哦'];
+    var seven = new TextInput(sevenmsg, 'seven');
+    var sevenlis = document.getElementById('seven-listener');
+    sevenlis.onmouseover ? sevenlis.onmouseover = function() {
         setTimeout(function() {
-            gou.start();
+            seven.start();
         }, 1000);
-    } : goulis.addEventListener('mouseover', function() {
+    } : sevenlis.addEventListener('mouseover', function() {
         setTimeout(function() {
-            gou.start();
+            seven.start();
         }, 1000);
     });
 })();
